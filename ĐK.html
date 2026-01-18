@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        header {
+            padding: 15px 20px;
+            border-bottom: 1px solid lightgray;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        header .logo {
+            height: 100px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            padding: 4px 8px;
+            white-space: nowrap;
+        }
+        .menu a:hover {
+            color: #007bff;
+        }
+
+        #form-box {
+            width: 500px;
+            margin: 50px auto;
+            background: #3976ef;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .input-small {
+            height: 36px;
+            font-size: 14px;
+        }
+
+        .btn-register {
+            width: 100%;
+            height: 40px;
+            background: #1ba7f3;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .25s;
+        }
+        .btn-register:hover {
+            background: #1a99e6;
+        }
+
+        /* MOBILE – Chỉ input tự kéo rộng */
+        @media (max-width: 768px) {
+            #form-box { width: 95%; }
+
+            .form-control {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img class="logo" src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png" alt="Logo">
+
+        <nav class="menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="phong.html">Phòng</a>
+            <a href="Uudai.html">Ưu đãi</a>
+            <a href="login.html">Nhà hàng</a>
+            <a href="login.html">Tiện nghi</a>
+            <a href="LH.html">Liên hệ</a>
+            <a href="ĐN.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <div id="form-box">
+        <h2 class="text-center text-uppercase mb-4">Đăng Ký Tài Khoản</h2>
+
+        <form action="process_register.php" method="post">
+
+            <div class="row">
+                <div class="col-md-6 col-12 mb-3">
+                    <label>Họ tên</label>
+                    <input type="text" name="fullname" class="form-control input-small" placeholder="Nhập Tên đăng nhập..." required>
+                </div>
+
+                <div class="col-md-6 col-12 mb-3">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="phone" class="form-control input-small" placeholder="Nhập Số điện thoại..." required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-12 mb-3">
+                    <label>Quốc tịch</label>
+                    <input type="text" name="nationality" class="form-control input-small" placeholder="Nhập Quốc tịch..." required>
+                </div>
+
+                <div class="col-md-6 col-12 mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control input-small" placeholder="Nhập Email..." required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label>Mật khẩu</label>
+                <input type="password" name="password" class="form-control input-small" placeholder="Nhập mật khẩu..." required>
+            </div>
+
+            <div class="mb-3">
+                <label>Xác nhận mật khẩu</label>
+                <input type="password" name="confirm_password" class="form-control input-small" placeholder="Nhập lại mật khẩu..." required>
+            </div>
+
+            <button type="submit" class="btn-register mt-2">Đăng ký</button>
+
+            <p class="text-center mt-3">
+                Đã có tài khoản?
+                <a href="ĐN.html" style="color: yellow; font-weight:600; text-decoration:none;">
+                    Đăng nhập
+                </a>
+            </p>
+
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="background:#0d0d0d; color:white; padding:40px 20px; text-align:center;">
+        <div style="font-size:22px; font-weight:600; letter-spacing:1px;">LA VELA SAIGON HOTEL</div>
+        <div style="margin-top:15px; font-size:18px;">280 xxx, Sài Gòn, Việt Nam</div>
+        <div style="margin-top:12px; font-size:18px;">Điện thoại: +84 123 456 789</div>
+        <div style="margin-top:12px; font-size:18px;">Email: lavelahotel@lavelasaigon.com</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

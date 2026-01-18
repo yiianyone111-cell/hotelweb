@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Vela Saigon</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* Brand palette */
+        --brand-900: #0b2948; /* Primary deep navy */
+        --brand-700: #103a66;
+        --brand-50: #f0f5fb;
+        --accent-600: #c79a3b; /* Gold accent */
+        --accent-700: #b4872f;
+        /* Greys */
+        --grey-900: #1f2937;
+        --grey-700: #374151;
+        --grey-500: #6b7280;
+        --grey-300: #d1d5db;
+        --grey-200: #e5e7eb;
+        --grey-100: #f3f4f6;
+        /* Semantic */
+        --success-50: #ecfdf5;
+        --success-300: #bbf7d0;
+        --success-700: #047857;
+        --danger-50: #fef2f2;
+        --danger-300: #fca5a5;
+        --danger-700: #b91c1c;
+        --warning-50: #fffbeb;
+        --warning-300: #fde68a;
+        --warning-700: #b45309;
+        /* Typography & surfaces */
+        --text: #222;
+        --muted: #555;
+        --bg: #fff;
+        /* Radii & shadows */
+        --radius-6: 6px;
+        --radius-8: 8px;
+        --radius-10: 10px;
+        --radius-12: 12px;
+        --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.06);
+        --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      /* -------------------- CSS Reset ------------------------- */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, "Noto Sans", sans-serif;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0 0 8px;
+        line-height: 1.25;
+      }
+      p {
+        margin: 0 0 16px;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+      }
+      .nav {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 12px 16px;
+      }
+      .logo {
+        font-weight: 800;
+        color: var(--brand-900);
+        letter-spacing: 0.2px;
+      }
+      .nav a {
+        color: var(--grey-900);
+        text-decoration: none;
+        padding: 8px 10px;
+        border-radius: var(--radius-8);
+        transition: background 0.15s ease;
+      }
+      .nav a:hover {
+        background: var(--grey-100);
+      }
+      .nav .active {
+        color: var(--brand-900);
+        font-weight: 700;
+      }
+      .cta {
+        margin-left: auto;
+      }
+      .cta .btn {
+        background: var(--accent-600);
+        color: #fff;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 28px 16px;
+      }
+      .page-intro {
+        margin-bottom: 20px;
+      }
+      .lead {
+        color: var(--muted);
+      }
+
+      /* -------------------- Card / Panel ---------------------- */
+      .card {
+        background: #fff;
+        border: 1px solid var(--grey-200);
+        border-radius: var(--radius-12);
+        box-shadow: var(--shadow-1);
+      }
+      .card-body {
+        padding: 20px;
+      }
+
+      /* -------------------- Form grid ------------------------- */
+      form.booking {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        background: var(--brand-50);
+        border: 1px solid var(--grey-200);
+        border-radius: var(--radius-12);
+      }
+      form.booking .section-title {
+        grid-column: 1/-1;
+        font-weight: 800;
+        color: var(--brand-900);
+        margin: 12px 20px 0;
+      }
+      .booking .full {
+        grid-column: 1/-1;
+      }
+
+      /* -------------------- Inputs ---------------------------- */
+      label {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--grey-700);
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        margin-top: 6px;
+        padding: 10px 12px;
+        border: 1px solid var(--grey-300);
+        border-radius: var(--radius-8);
+        font-size: 15px;
+        background: #fff;
+        color: var(--grey-900);
+        outline: none;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9aa3af;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--brand-700);
+        box-shadow: 0 0 0 3px rgba(16, 58, 102, 0.15);
+      }
+      input[type="date"] {
+        padding: 8px 10px;
+      }
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      /* Inline help / validation */
+      .field-help {
+        font-size: 12px;
+        color: var(--grey-500);
+        margin-top: 6px;
+      }
+      .error {
+        border-color: var(--danger-700) !important;
+      }
+      .error-msg {
+        font-size: 12px;
+        color: var(--danger-700);
+        margin-top: 6px;
+      }
+
+      /* -------------------- Buttons --------------------------- */
+      .btn {
+        display: inline-block;
+        border: none;
+        padding: 12px 16px;
+        border-radius: var(--radius-10);
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.02s ease, filter 0.15s;
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .btn-primary {
+        background: var(--brand-900);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.06);
+      }
+      .btn-secondary {
+        background: var(--grey-100);
+        color: var(--grey-900);
+      }
+      .btn-secondary:hover {
+        filter: brightness(1.02);
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      /* -------------------- Summary alert --------------------- */
+      .alert {
+        border: 1px solid;
+        padding: 12px;
+        border-radius: var(--radius-8);
+      }
+      .alert-success {
+        background: var(--success-50);
+        border-color: var(--success-300);
+        color: var(--success-700);
+      }
+      .alert-error {
+        background: var(--danger-50);
+        border-color: var(--danger-300);
+        color: var(--danger-700);
+      }
+
+      /* -------------------- Footer ---------------------------- */
+      footer {
+        margin-top: 40px;
+        background: #0f172a;
+        color: #fff;
+      }
+      .footer-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 16px;
+      }
+      .footer-title {
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+      .footer-meta {
+        opacity: 0.9;
+      }
+
+      /* -------------------- Utility --------------------------- */
+      .mt-8 {
+        margin-top: 8px;
+      }
+      .mt-16 {
+        margin-top: 16px;
+      }
+      .mt-24 {
+        margin-top: 24px;
+      }
+
+      /* -------------------- Responsive ------------------------ */
+      @media (max-width: 720px) {
+        .nav {
+          gap: 10px;
+        }
+        form.booking {
+          grid-template-columns: 1fr;
+        }
+        .cta {
+          margin-left: 0;
+        }
+        .actions {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header giống index: Logo + các mục Trang chủ, Phòng, Ưu đãi, Nhà hàng, Tiện Nghi, Hội nghị - Sự kiện -->
+    <nav class="navbar bg-white border-bottom py-0">
+      <div class="container">
+        <img
+          src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png"
+          alt="Logo"
+          class="logo"
+        />
+        <div>
+          <a class="mx-2 text-decoration-none text-dark" href="index.html"
+            >Trang chủ</a
+          >
+          <a class="mx-2 text-decoration-none text-dark" href="phong.html">Phòng</a>
+          <a class="mx-2 text-decoration-none text-dark" href="Uudai.html"
+            >Ưu đãi</a
+          >
+          <a class="mx-2 text-decoration-none text-dark" href="#">Nhà hàng</a>
+          <a class="mx-2 text-decoration-none text-dark" href="#">Tiện Nghi</a>
+          <a class="mx-2 text-decoration-none text-dark" href="LH.html"
+            >Liên hệ</a>
+          <a class="mx-2 text-decoration-none text-dark" href="ĐN.html"
+            >Tài khoản</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="page-intro">
+        <h1>Đặt phòng</h1>
+        <p class="lead">
+          Điền thông tin bên dưới để chúng tôi kiểm tra tình trạng phòng và liên
+          hệ xác nhận.
+        </p>
+      </div>
+
+      <form class="booking card" id="bookingForm" novalidate>
+        <div class="section-title">Thông tin lưu trú</div>
+        <div class="card-body full">
+          <!-- Grid hàng 1 -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 16px;
+            "
+          >
+            <div>
+              <label for="checkin">Ngày nhận phòng</label>
+              <input type="date" id="checkin" name="checkin" required />
+              <div class="field-help">Vui lòng chọn ngày nhận phòng.</div>
+              <div class="error-msg" id="err-checkin" hidden>
+                Ngày nhận phòng không hợp lệ.
+              </div>
+            </div>
+            <div>
+              <label for="checkout">Ngày trả phòng</label>
+              <input type="date" id="checkout" name="checkout" required />
+              <div class="field-help">
+                Ngày trả phòng phải sau ngày nhận phòng.
+              </div>
+              <div class="error-msg" id="err-checkout" hidden>
+                Ngày trả phòng không hợp lệ.
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid hàng 2 -->
+          <div
+            class="mt-16"
+            style="
+              display: grid;
+              grid-template-columns: repeat(3, minmax(0, 1fr));
+              gap: 16px;
+            "
+          >
+            <div>
+              <label for="adults">Số người lớn</label>
+              <select id="adults" name="adults" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4+</option>
+              </select>
+            </div>
+            <div>
+              <label for="children">Số trẻ em</label>
+              <select id="children" name="children">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3+</option>
+              </select>
+            </div>
+            <div>
+              <label for="roomtype">Loại phòng</label>
+              <select id="roomtype" name="roomtype" required>
+                <option value="">-- Chọn loại phòng --</option>
+                <option>Deluxe</option>
+                <option>Suite</option>
+                <option>Tổng thống</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">Thông tin liên hệ</div>
+        <div class="card-body full">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 16px;
+            "
+          >
+            <div>
+              <label for="fullname">Họ và tên</label>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Nguyễn Văn A"
+                required
+              />
+              <div class="error-msg" id="err-fullname" hidden>
+                Vui lòng nhập họ và tên.
+              </div>
+            </div>
+            <div>
+              <label for="phone">Số điện thoại</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+84 ..."
+                required
+              />
+              <div class="error-msg" id="err-phone" hidden>
+                Vui lòng nhập số điện thoại hợp lệ.
+              </div>
+            </div>
+          </div>
+          <div class="mt-16 full">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+            <div class="error-msg" id="err-email" hidden>
+              Vui lòng nhập email hợp lệ.
+            </div>
+          </div>
+          <div class="mt-16 full">
+            <label for="notes">Yêu cầu đặc biệt (nếu có)</label>
+            <textarea
+              id="notes"
+              name="notes"
+              placeholder="Ví dụ: phòng không hút thuốc, nhận phòng sớm..."
+            ></textarea>
+          </div>
+          <div class="actions mt-16 full">
+            <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
+            <button type="reset" class="btn btn-secondary">Xóa</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="result" class="mt-16"></div>
+    </main>
+
+    <!-- Footer giống nội dung liên hệ dưới cùng của index -->
+    <footer>
+      <div class="footer-wrap">
+        <div class="footer-title">LA VELA SAIGON HOTEL</div>
+        <div class="footer-meta">280 xxx, Sài Gòn, Việt Nam</div>
+        <div class="footer-meta">Điện thoại: +84 123 456 789</div>
+        <div class="footer-meta">Email: lavelahotel@lavelasaigon.com</div>
+      </div>
+    </footer>
+
+    <script>
+      // Helper: Email & Phone regex (đơn giản)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRegex = /\d{8,}/;
+
+      const form = document.getElementById("bookingForm");
+      const result = document.getElementById("result");
+
+      function setError(el, msgEl, show) {
+        if (show) {
+          el.classList.add("error");
+          msgEl.hidden = false;
+        } else {
+          el.classList.remove("error");
+          msgEl.hidden = true;
+        }
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Clear previous errors
+        ["checkin", "checkout", "fullname", "phone", "email"].forEach((id) => {
+          const el = document.getElementById(id);
+          const msg = document.getElementById("err-" + id);
+          if (el && msg) {
+            setError(el, msg, false);
+          }
+        });
+
+        const ci = new Date(form.checkin.value);
+        const co = new Date(form.checkout.value);
+        let valid = true;
+        if (isNaN(ci)) {
+          setError(form.checkin, document.getElementById("err-checkin"), true);
+          valid = false;
+        }
+        if (isNaN(co) || (!isNaN(ci) && co <= ci)) {
+          setError(
+            form.checkout,
+            document.getElementById("err-checkout"),
+            true
+          );
+          valid = false;
+        }
+        if (!form.fullname.value.trim()) {
+          setError(
+            form.fullname,
+            document.getElementById("err-fullname"),
+            true
+          );
+          valid = false;
+        }
+        if (!phoneRegex.test(form.phone.value)) {
+          setError(form.phone, document.getElementById("err-phone"), true);
+          valid = false;
+        }
+        if (!emailRegex.test(form.email.value)) {
+          setError(form.email, document.getElementById("err-email"), true);
+          valid = false;
+        }
+
+        if (!valid) {
+          result.innerHTML = `<div class="alert alert-error">Vui lòng kiểm tra lại các trường được đánh dấu.</div>`;
+          return;
+        }
+
+        const nights = Math.round((co - ci) / (1000 * 60 * 60 * 24));
+        const data = {
+          checkin: form.checkin.value,
+          checkout: form.checkout.value,
+          nights: nights,
+          adults: form.adults.value,
+          children: form.children.value,
+          roomtype: form.roomtype.value,
+          fullname: form.fullname.value.trim(),
+          phone: form.phone.value.trim(),
+          email: form.email.value.trim(),
+          notes: form.notes.value.trim(),
+        };
+
+        result.innerHTML = `<div class="alert alert-success">
+        <strong>Yêu cầu đặt phòng đã được tạo.</strong><br/>
+        ${data.fullname} • ${data.email} • ${data.phone}<br/>
+        ${data.roomtype || "—"} · ${data.adults} người lớn, ${
+          data.children
+        } trẻ em · ${data.nights} đêm<br/>
+        ${data.checkin} → ${data.checkout}
+      </div>`;
+
+        // TODO: gửi dữ liệu lên server (fetch/axios) khi có endpoint
+        // fetch('/api/bookings', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)})
+        //  .then(r=>r.json()).then(r=>{/* xử lý */}).catch(()=>{ /* thông báo lỗi */ });
+      });
+    </script>
+  </body>
+</html>

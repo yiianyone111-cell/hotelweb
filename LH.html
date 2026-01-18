@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Liên Hệ - La Vela Saigon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        header {
+            padding: 15px 20px;
+            border-bottom: 1px solid lightgray;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        header .logo { height: 100px; }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            padding: 4px 8px;
+            white-space: nowrap;
+        }
+        .menu a:hover { color: #007bff; }
+
+        #contact-section {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        #contact-section h2 {
+            font-weight: 600;
+            font-size: 28px;
+        }
+        #contact-section p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 10px auto;
+            line-height: 1.5;
+        }
+
+        #contact-box {
+            width: 500px;
+            max-width: 92%;
+            margin: 20px auto 50px auto;
+            background: #3976ef;
+            padding: 25px;
+            border-radius: 6px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #contact-box .input-small {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            padding: 0 15px;
+            border: none;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        #contact-box input.help { height: 50px; }
+        #contact-box textarea.message {
+            height: 100px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: none;
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        #contact-box .btn-register {
+            width: 100%;
+            height: 45px;
+            background: #1ba7f3;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .25s;
+        }
+        #contact-box .btn-register:hover { background: #1a99e6; }
+
+        @media (max-width: 768px) {
+            #contact-box { width: 92%; }
+            .row-inputs { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img class="logo" src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png" alt="Logo">
+        <nav class="menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="phong.html">Phòng</a>
+            <a href="Uudai.html">Ưu đãi</a>
+            <a href="restaurant.html">Nhà hàng</a>
+            <a href="restaurant.html">Tiện nghi</a>
+            <a href="LH.html">Liên hệ</a>
+            <a href="ĐN.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <div id="contact-section">
+        <h2 class="text-uppercase">Liên Hệ</h2>
+        <p>
+            Cung cấp nhiều tiện ích và dịch vụ đi kèm, mang đến cho khách hàng những trải nghiệm tốt nhất. 
+            <strong>Liên hệ ngay cho chúng tôi.</strong>
+        </p>
+    </div>
+
+    <div id="contact-box">
+        <form action="process_contact.php" method="post">
+            <div class="row">
+                <div class="col-md-6 col-12 mb-3">
+                    <label>Họ tên</label>
+                    <input type="text" name="fullname" class="form-control input-small" placeholder="Nhập họ tên..." required>
+                </div>
+                <div class="col-md-6 col-12 mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control input-small" placeholder="Nhập email..." required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label>Chúng tôi có thể giúp gì</label>
+                <input type="text" name="help" class="form-control input-small help" placeholder="Chúng tôi có thể giúp gì cho quý khách..." required>
+            </div>
+
+            <div class="mb-3">
+                <label>Lời nhắn</label>
+                <textarea name="message" class="message" placeholder="Lời nhắn..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-register mt-2">Gửi</button>
+        </form>
+    </div>
+
+    <footer style="background:#0d0d0d; color:white; padding:40px 20px; text-align:center;">
+        <div style="font-size:22px; font-weight:600; letter-spacing:1px;">LA VELA SAIGON HOTEL</div>
+        <div style="margin-top:15px; font-size:18px;">280 xxx, Sài Gòn, Việt Nam</div>
+        <div style="margin-top:12px; font-size:18px;">Điện thoại: +84 123 456 789</div>
+        <div style="margin-top:12px; font-size:18px;">Email: lavelahotel@lavelasaigon.com</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
