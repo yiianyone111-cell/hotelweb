@@ -73,23 +73,34 @@
                 width: 100% !important;
             }
         }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
     </style>
 </head>
 
 <body>
 
     <header>
-        <img class="logo" src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png" alt="Logo">
+    <div class="container-lg header-inner">
+        <img class="logo"
+             src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png"
+             alt="Logo">
 
         <nav class="menu">
             <a href="index.html">Trang chủ</a>
             <a href="phong.html">Phòng</a>
             <a href="Uudai.html">Ưu đãi</a>
-            <a href="login.html">Tiện nghi</a>
+            <a href="#">Tiện nghi</a>
             <a href="LH.html">Liên hệ</a>
             <a href="ĐN.html">Tài khoản</a>
         </nav>
-    </header>
+    </div>
+</header>
+
 
     <div id="form-box">
         <h2 class="text-center text-uppercase mb-4">Đăng Ký Tài Khoản</h2>
@@ -154,4 +165,3 @@
 
 </body>
 </html>
-
