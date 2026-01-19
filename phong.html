@@ -12,7 +12,8 @@
 
     <style>
       /* Vibe đen/xám/trắng như index + nút vàng cho hành động */
-      :root {
+      /*biến toàn cục*/
+      :root { 
         --text: #222;
         --muted: #555;
         --line: #e5e7eb;
@@ -25,7 +26,7 @@
         color: var(--text);
         font-family: Arial, sans-serif;
       }
-
+      /* hanh vị trí đầu trang */
       .hero {
         position: relative;
         min-height: 360px;
@@ -62,7 +63,7 @@
         letter-spacing: 0.18rem;
         text-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
       }
-      /* Intro mô tả ngay dưới hero (giống index) */
+      /* Intro mô tả ngay dưới hero (giống index) dới hạn chiều rộng */
       .intro {
         max-width: 900px;
         margin: 0 auto;
@@ -70,7 +71,7 @@
         text-align: center;
         color: var(--muted);
       }
-      /* Lưới thẻ phòng 2 cột, ảnh bo góc lớn */
+      /* Lưới thẻ phòng, ảnh bo góc */
       .room-card {
         border: 1px solid var(--line);
         border-radius: var(--radius);
@@ -112,7 +113,7 @@
         background: #999;
         display: inline-block;
       }
-      /* Nút vàng giống mẫu */
+      /* Nút vàng  */
       .btn-yellow {
         --bs-btn-color: #111;
         --bs-btn-bg: var(--yellow);
@@ -152,7 +153,7 @@
   </head>
   <body>
     <nav class="navbar bg-white border-bottom py-0">
-      <div class="container">
+      <div class="container-lg">
         <img
           src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png"
           alt="Logo"
@@ -168,6 +169,7 @@
           <a class="mx-2 text-decoration-none text-dark" href="Uudai.html"
             >Ưu đãi</a
           >
+  
           <a class="mx-2 text-decoration-none text-dark" href="#">Tiện Nghi</a>
           <a class="mx-2 text-decoration-none text-dark" href="LH.html"
             >Liên hệ</a
@@ -196,136 +198,121 @@
       </p>
     </section>
 
-    <!-- Danh sách phòng (bố cục giống index: 2 cột, separator “Xem thêm –”) -->
-    <main class="container section-spacing">
-      <!-- Hàng 1 -->
-      <div class="row g-4">
-        <!-- Phòng Đôi -->
-        <div class="col-md-6">
-          <div class="room-card h-100">
-            <img
-              class="room-image rounded-top"
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"
-              alt="Phòng Đôi"
-            />
-            <div class="room-body">
-              <h3 class="room-title h5 mb-1">PHÒNG ĐÔI</h3>
-              <p class="room-desc mb-2">
-                Phòng rộng rãi, nội thất ấm cúng; lý tưởng cho kỳ nghỉ thư giãn.
-              </p>
-              <div class="room-meta">
-                <span>2 khách</span><span class="dot"></span><span>30m²</span>
-              </div>
-              <div class="d-flex justily-content-center">
-                <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
-              </div>
-            </div>
+      <!-- Danh sách phòng: (bố cục giống index: 3 cột) -->
+       <main class="container section-spacing">        
+        <div class="row g-4">
+    <!-- Phòng Đôi -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="room-card h-100">
+        <img class="room-image rounded-top"
+          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop"
+          alt="Phòng Đôi" />
+        <div class="room-body">
+          <h3 class="room-title h5 mb-1">PHÒNG ĐÔI</h3>
+          <p class="room-desc mb-2">
+            Phòng rộng rãi, nội thất ấm cúng; lý tưởng cho kỳ nghỉ thư giãn.
+          </p>
+          <div class="room-meta">
+            <span>2 khách</span><span class="dot"></span><span>30m²</span>
           </div>
-        </div>
-        <!-- Phòng Deluxe -->
-        <div class="col-md-6">
-          <div class="room-card h-100">
-            <img
-              class="room-image rounded-top"
-              src="https://lavelasaigon.com/wp-content/uploads/2022/10/Deluxe-Corner-Double-2-395x340.jpg"
-              alt="Phòng Deluxe"
-            />
-            <div class="room-body">
-              <h3 class="room-title h5 mb-1">PHÒNG DELUXE</h3>
-              <p class="room-desc mb-2">
-                Ánh sáng tự nhiên, thiết kế tinh tế, tiện nghi cao cấp.
-              </p>
-              <div class="room-meta">
-                <span>2 khách</span><span class="dot"></span><span>36m²</span>
-              </div>
-              <div class="d-flex gap-2">
-                <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
-              </div>
-            </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-yellow" href="#">Xem chi tiết</a>
+            <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="more">Xem thêm –</div>
-
-      <!-- Hàng 2 -->
-      <div class="row g-4">
-        <!-- Phòng Kết nối -->
-        <div class="col-md-6">
-          <div class="room-card h-100">
-            <img
-              class="room-image rounded-top"
-              src="https://images.unsplash.com/photo-1472220625704-91e1462799b2?q=80&w=1600&auto=format&fit=crop"
-              alt="Phòng Kết nối"
-            />
-            <div class="room-body">
-              <h3 class="room-title h5 mb-1">PHÒNG KẾT NỐI</h3>
-              <p class="room-desc mb-2">
-                Hai phòng liền kề có cửa thông nhau, không gian rộng cho gia
-                đình/nhóm.
-              </p>
-              <div class="room-meta">
-                <span>4 khách</span><span class="dot"></span><span>58m²</span>
-              </div>
-              <div class="d-flex gap-2">
-                <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
-              </div>
-            </div>
+    <!-- Phòng Deluxe -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="room-card h-100">
+        <img class="room-image rounded-top"
+          src="https://lavelasaigon.com/wp-content/uploads/2022/10/Deluxe-Corner-Double-2-395x340.jpg"
+          alt="Phòng Deluxe" />
+        <div class="room-body">
+          <h3 class="room-title h5 mb-1">PHÒNG DELUXE</h3>
+          <p class="room-desc mb-2">
+            Ánh sáng tự nhiên, thiết kế tinh tế, tiện nghi cao cấp.
+          </p>
+          <div class="room-meta">
+            <span>2 khách</span><span class="dot"></span><span>36m²</span>
           </div>
-        </div>
-        <!-- Phòng Gia đình -->
-        <div class="col-md-6">
-          <div class="room-card h-100">
-            <img
-              class="room-image rounded-top"
-              src="https://lavelasaigon.com/wp-content/uploads/2022/11/DSC3374-HDR-395x340.jpg"
-              alt="Phòng Gia đình"
-            />
-            <div class="room-body">
-              <h3 class="room-title h5 mb-1">PHÒNG GIA ĐÌNH</h3>
-              <p class="room-desc mb-2">
-                Bố trí giường linh hoạt, không gian ấm áp, phù hợp gia đình có
-                trẻ em.
-              </p>
-              <div class="room-meta">
-                <span>3–4 khách</span><span class="dot"></span><span>48m²</span>
-              </div>
-              <div class="d-flex gap-2">
-                <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
-              </div>
-            </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-yellow" href="#">Xem chi tiết</a>
+            <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="more">Xem thêm –</div>
-
-      <!-- Hàng 3: một cột giữa -->
-      <div class="row justify-content-center g-4">
-        <div class="col-md-8">
-          <div class="room-card h-100">
-            <img
-              class="room-image rounded-top"
-              src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop"
-              alt="Phòng Highest"
-            />
-            <div class="room-body">
-              <h3 class="room-title h5 mb-1">PHÒNG HIGHEST</h3>
-              <p class="room-desc mb-2">
-                Đỉnh cao sang trọng, nội thất tinh xảo, tầm nhìn đẹp, dịch vụ
-                đẳng cấp.
-              </p>
-              <div class="room-meta">
-                <span>2–3 khách</span><span class="dot"></span><span>56m²</span>
-              </div>
-              <div class="d-flex gap-2">
-                <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
-              </div>
-            </div>
+    <!-- Phòng Kết nối -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="room-card h-100">
+        <img class="room-image rounded-top"
+          src="https://images.unsplash.com/photo-1472220625704-91e1462799b2?q=80&w=1600&auto=format&fit=crop"
+          alt="Phòng Kết nối" />
+        <div class="room-body">
+          <h3 class="room-title h5 mb-1">PHÒNG KẾT NỐI</h3>
+          <p class="room-desc mb-2">
+            Hai phòng liền kề có cửa thông nhau, không gian rộng cho gia đình/nhóm.
+          </p>
+          <div class="room-meta">
+            <span>4 khách</span><span class="dot"></span><span>58m²</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-yellow" href="#">Xem chi tiết</a>
+            <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+
+    <!-- Phòng Gia đình -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="room-card h-100">
+        <img class="room-image rounded-top"
+          src="https://lavelasaigon.com/wp-content/uploads/2022/11/DSC3374-HDR-395x340.jpg"
+          alt="Phòng Gia đình" />
+        <div class="room-body">
+          <h3 class="room-title h5 mb-1">PHÒNG GIA ĐÌNH</h3>
+          <p class="room-desc mb-2">
+            Bố trí giường linh hoạt, không gian ấm áp.
+          </p>
+          <div class="room-meta">
+            <span>3–4 khách</span><span class="dot"></span><span>48m²</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-yellow" href="#">Xem chi tiết</a>
+            <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phòng Highest -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="room-card h-100">
+        <img class="room-image rounded-top"
+          src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1600&auto=format&fit=crop"
+          alt="Phòng Highest" />
+        <div class="room-body">
+          <h3 class="room-title h5 mb-1">PHÒNG HIGHEST</h3>
+          <p class="room-desc mb-2">
+            Đỉnh cao sang trọng, nội thất tinh xảo.
+          </p>
+          <div class="room-meta">
+            <span>2–3 khách</span><span class="dot"></span><span>56m²</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-yellow" href="#">Xem chi tiết</a>
+            <a class="btn btn-yellow" href="datphong.html">Đặt phòng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
 
     <!-- Footer giống index -->
     <footer class="mt-4 py-4 text-center">
@@ -341,5 +328,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
-
