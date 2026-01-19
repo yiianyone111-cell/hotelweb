@@ -16,7 +16,10 @@
             justify-content: space-between;
             margin-bottom: 30px;
         }
-        header .logo { height: 100px; }
+        header .logo { 
+            height: auto;
+            width: 15%;
+        }
 
         .menu {
             display: flex;
@@ -108,22 +111,19 @@
 </head>
 <body>
 
-    <header>
-    <div class="container-lg header-inner">
-        <img class="logo"
-             src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png"
-             alt="Logo">
-
-        <nav class="menu">
-            <a href="index.html">Trang chủ</a>
-            <a href="phong.html">Phòng</a>
-            <a href="Uudai.html">Ưu đãi</a>
-            <a href="#">Tiện nghi</a>
-            <a href="LH.html">Liên hệ</a>
-            <a href="ĐN.html">Tài khoản</a>
-        </nav>
+<nav class="navbar bg-white border-bottom py-0">
+    <div class="container-lg">
+        <img src="https://lavelasaigon.com/wp-content/uploads/2023/01/main-logo.png" alt="Logo" class="logo">
+        <div>
+            <a class="mx-2 text-decoration-none text-dark" href="index.html">Trang chủ</a>
+            <a class="mx-2 text-decoration-none text-dark" href="phong.html">Phòng</a>
+            <a class="mx-2 text-decoration-none text-dark" href="Uudai.html">Ưu đãi</a>
+            <a class="mx-2 text-decoration-none text-dark" href="#">Tiện nghi</a>
+            <a class="mx-2 text-decoration-none text-dark" href="LH.html">Liên hệ</a>
+            <a class="mx-2 text-decoration-none text-dark" href="ĐN.html">Tài khoản</a>
+        </div>
     </div>
-</header>
+</nav>
 
 
     <div id="contact-section">
