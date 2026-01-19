@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Vela Saigon</title>
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,11 +11,11 @@
 
     <style>
       :root {
-        /* Brand palette */
-        --brand-900: #0b2948; /* Primary deep navy */
+        /* Biến toàn cục*/
+        --brand-900: #0b2948; /* màu chủ đạo */
         --brand-700: #103a66;
         --brand-50: #f0f5fb;
-        --accent-600: #c79a3b; /* Gold accent */
+        --accent-600: #bbbb3e; 
         --accent-700: #b4872f;
         /* Greys */
         --grey-900: #1f2937;
@@ -49,6 +48,7 @@
       }
 
       /* -------------------- CSS Reset ------------------------- */
+      /*Tránh lỗi tính kích thước*/
       *,
       *::before,
       *::after {
@@ -57,6 +57,7 @@
       html {
         scroll-behavior: smooth;
       }
+      /*Xóa margin mặc định*/
       body {
         margin: 0;
         color: var(--text);
@@ -82,6 +83,7 @@
       a {
         color: inherit;
       }
+      /*Navbar custom dùng flexbox */
       .nav {
         max-width: 1100px;
         margin: 0 auto;
@@ -116,7 +118,7 @@
         background: var(--accent-600);
         color: #fff;
       }
-
+      /*Layout chính*/
       main {
         max-width: 1000px;
         margin: 0 auto;
@@ -129,7 +131,7 @@
         color: var(--muted);
       }
 
-      /* -------------------- Card / Panel ---------------------- */
+      /* thẻ car  */
       .card {
         background: #fff;
         border: 1px solid var(--grey-200);
@@ -140,7 +142,7 @@
         padding: 20px;
       }
 
-      /* -------------------- Form grid ------------------------- */
+      /* Form  dùng grid  */
       form.booking {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -261,7 +263,7 @@
         color: var(--danger-700);
       }
 
-      /* -------------------- Footer ---------------------------- */
+      /* -------footer (cuối tranh) ---------------------------- */
       footer {
         margin-top: 40px;
         background: #0f172a;
@@ -271,6 +273,7 @@
         max-width: 1100px;
         margin: 0 auto;
         padding: 24px 16px;
+        text-align: center; /*căn giũa*/
       }
       .footer-title {
         font-weight: 800;
